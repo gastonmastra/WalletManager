@@ -1,0 +1,10 @@
+A:\WalletManager\Wallet\Wallet\bin\Debug\Wallet.exe.config
+A:\WalletManager\Wallet\Wallet\bin\Debug\Wallet.exe
+A:\WalletManager\Wallet\Wallet\bin\Debug\Wallet.pdb
+A:\WalletManager\Wallet\Wallet\obj\Debug\Wallet.csproj.AssemblyReference.cache
+A:\WalletManager\Wallet\Wallet\obj\Debug\Wallet.Boundarys.Login.resources
+A:\WalletManager\Wallet\Wallet\obj\Debug\Wallet.Properties.Resources.resources
+A:\WalletManager\Wallet\Wallet\obj\Debug\Wallet.csproj.GenerateResource.cache
+A:\WalletManager\Wallet\Wallet\obj\Debug\Wallet.csproj.CoreCompileInputs.cache
+A:\WalletManager\Wallet\Wallet\obj\Debug\Wallet.exe
+A:\WalletManager\Wallet\Wallet\obj\Debug\Wallet.pdb
