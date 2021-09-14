@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Wallet.Boundarys
 {
-    public partial class Login : Form
+    public partial class FrmWallets : Form
     {
-        public Login()
+        public FrmWallets()
         {
             InitializeComponent();
         }
