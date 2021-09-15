@@ -29,6 +29,7 @@ namespace Wallet.Boundarys
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWallets));
             this.SuspendLayout();
             // 
             // FrmWallets
@@ -37,6 +38,7 @@ namespace Wallet.Boundarys
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmWallets";
             this.Text = "Wallets";
             this.ResumeLayout(false);

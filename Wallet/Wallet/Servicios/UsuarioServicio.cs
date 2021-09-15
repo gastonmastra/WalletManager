@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Wallet.Entities;
-using Wallet.Resources;
+using Wallet.Repository;
 
 namespace Wallet.Servicios
 {

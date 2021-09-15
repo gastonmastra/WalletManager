@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Wallet.Entities;
 using Wallet.Repository;
 
-namespace Wallet.Resources
+namespace Wallet.Repository
 {
     class UsuarioRepositorio
     {

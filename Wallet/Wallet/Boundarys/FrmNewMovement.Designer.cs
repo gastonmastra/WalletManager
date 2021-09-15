@@ -29,6 +29,7 @@ namespace Wallet.Boundarys
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNewMovement));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -175,7 +176,7 @@ namespace Wallet.Boundarys
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.MenuText;
-            this.button3.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.DarkCyan;
             this.button3.Location = new System.Drawing.Point(236, 12);
             this.button3.Name = "button3";
@@ -187,7 +188,7 @@ namespace Wallet.Boundarys
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.MenuText;
-            this.button4.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.DarkCyan;
             this.button4.Location = new System.Drawing.Point(236, 52);
             this.button4.Name = "button4";
@@ -199,7 +200,7 @@ namespace Wallet.Boundarys
             // button5
             // 
             this.button5.BackColor = System.Drawing.SystemColors.MenuText;
-            this.button5.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.DarkCyan;
             this.button5.Location = new System.Drawing.Point(544, 12);
             this.button5.Name = "button5";
@@ -211,7 +212,7 @@ namespace Wallet.Boundarys
             // button6
             // 
             this.button6.BackColor = System.Drawing.SystemColors.MenuText;
-            this.button6.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.DarkCyan;
             this.button6.Location = new System.Drawing.Point(544, 84);
             this.button6.Name = "button6";
@@ -240,6 +241,7 @@ namespace Wallet.Boundarys
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmNewMovement";
             this.Text = "New Movement";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewMovement_FormClosing);
