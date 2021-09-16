@@ -11,13 +11,13 @@ namespace Wallet.Servicios
     class UsuarioServicio
     {
         private UsuarioRepositorio usuarioRepositorio;
-        public static User usuarioLogueado;
+        public static user usuarioLogueado;
 
         public UsuarioServicio()
         {
             usuarioRepositorio = new UsuarioRepositorio();
         }
-        public User Login(User usuarioIngresado)
+        public user Login(user usuarioIngresado)
         {
             var usuario = usuarioRepositorio.LoginBD(usuarioIngresado);
             usuarioLogueado = usuario;

@@ -8,19 +8,19 @@ using Wallet.Repository;
 
 namespace Wallet.Repository
 {
-    class UsuarioRepositorio
+ 
+    class UsuarioRepositorio : Repositorio
     {
-        public User LoginBD(User usuarioIngresado)
+        private List<user> usuarios;
+        public user LoginBD(user usuarioIngresado)
         {
-            User usuarioResultado = null;
-            var sentenciaSQL = $"SELECT * FROM Users WHERE username='{usuarioIngresado.username}' " +
-                $"and passwd='{usuarioIngresado.password}'";
-            var tablaResultado = DBHelper.GetDBHelper().ConsultaSQL(sentenciaSQL);
-            if(tablaResultado.Rows.Count == 1)
+            user usuarioResultado = null;
+
+            usuarios = this.GetAll();
+            foreach (var user in usuarios)
             {
-                var row = tablaResultado.Rows[0];
-                usuarioResultado = new User();
-                usuarioResultado.username = row["username"].ToString();
+                if (usuarioIngresado.username == user.username && usuarioIngresado.passwd == user.passwd)
+                    usuarioResultado = user;
             }
             return usuarioResultado;
         }

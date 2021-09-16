@@ -23,9 +23,9 @@ namespace Wallet.Boundarys
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var usuario = new User();
+            var usuario = new user();
             usuario.username = txtName.Text;
-            usuario.password = txtPassword.Text;
+            usuario.passwd = txtPassword.Text;
 
             var usuarioLogueado = usuarioServicio.Login(usuario);
             if (usuarioLogueado == null)
@@ -35,5 +35,6 @@ namespace Wallet.Boundarys
                 this.Dispose();
             }
         }
+
     }
 }

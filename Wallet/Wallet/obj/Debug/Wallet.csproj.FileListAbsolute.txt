@@ -21,3 +21,8 @@ A:\WalletManager\WalletManager\Wallet\Wallet\obj\Debug\Wallet.Principal.resource
 A:\WalletManager\WalletManager\Wallet\Wallet\obj\Debug\Wallet.Boundarys.FrmLogin.resources
 A:\WalletManager\WalletManager\Wallet\Wallet\obj\Debug\Wallet.Boundarys.FrmNewMovement.resources
 A:\WalletManager\WalletManager\Wallet\Wallet\obj\Debug\Wallet.Boundarys.FrmWallets.resources
+A:\WalletManager\WalletManager\Wallet\Wallet\bin\Debug\EntityFramework.dll
+A:\WalletManager\WalletManager\Wallet\Wallet\bin\Debug\EntityFramework.SqlServer.dll
+A:\WalletManager\WalletManager\Wallet\Wallet\bin\Debug\EntityFramework.xml
+A:\WalletManager\WalletManager\Wallet\Wallet\bin\Debug\EntityFramework.SqlServer.xml
+A:\WalletManager\WalletManager\Wallet\Wallet\obj\Debug\Wallet.csproj.CopyComplete

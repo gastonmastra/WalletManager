@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1947049c36b84533853cce3bf8db4782" Name="Diagram1">
+        <EntityTypeShape EntityType="walletManagerDBModel.clasification" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="walletManagerDBModel.fixedExpense" Width="1.5" PointX="2.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="walletManagerDBModel.movement" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="walletManagerDBModel.person" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="walletManagerDBModel.typeOfMovement" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="walletManagerDBModel.user" Width="1.5" PointX="2.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="walletManagerDBModel.wallet" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="walletManagerDBModel.fk_movement_clasification" ManuallyRouted="false" />
+        <AssociationConnector Association="walletManagerDBModel.fk_movement_person" ManuallyRouted="false" />
+        <AssociationConnector Association="walletManagerDBModel.fk_movement_typeOfMovement" ManuallyRouted="false" />
+        <AssociationConnector Association="walletManagerDBModel.fixedExpense_x_wallets" ManuallyRouted="false" />
+        <AssociationConnector Association="walletManagerDBModel.wallets_x_users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
