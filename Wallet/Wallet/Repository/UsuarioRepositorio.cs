@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Wallet.Entities;
-using Wallet.Repository;
+using WalletManager.Model;
 
-namespace Wallet.Repository
+namespace WalletManager.Repository
 {
  
     class UsuarioRepositorio : Repositorio
     {
-        private List<user> usuarios;
-        public user LoginBD(user usuarioIngresado)
+        private List<User> usuarios;
+        public User LoginBD(User usuarioIngresado)
         {
-            user usuarioResultado = null;
+            User usuarioResultado = null;
 
             usuarios = this.GetAll();
             foreach (var user in usuarios)
@@ -23,6 +22,17 @@ namespace Wallet.Repository
                     usuarioResultado = user;
             }
             return usuarioResultado;
+        }
+
+        public List<User> GetAll()
+        // Return a list with all users in the database
+        {
+            var users = new List<User>();
+            foreach (User user in db.Users)
+            {
+                users.Add(user);
+            }
+            return users;
         }
     }
 }

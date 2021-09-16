@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Wallet.Entities
+namespace Wallet.Model
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class walletManagerDBEntities : DbContext
+    public partial class DBEntities : DbContext
     {
-        public walletManagerDBEntities()
-            : base("name=walletManagerDBEntities")
+        public DBEntities()
+            : base("name=DBEntities")
         {
         }
     
@@ -25,12 +25,12 @@ namespace Wallet.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<clasification> clasifications { get; set; }
-        public virtual DbSet<fixedExpense> fixedExpenses { get; set; }
-        public virtual DbSet<movement> movements { get; set; }
-        public virtual DbSet<person> persons { get; set; }
-        public virtual DbSet<typeOfMovement> typeOfMovements { get; set; }
-        public virtual DbSet<user> users { get; set; }
-        public virtual DbSet<wallet> wallets { get; set; }
+        public virtual DbSet<Clasification> Clasifications { get; set; }
+        public virtual DbSet<FixedExpense> FixedExpenses { get; set; }
+        public virtual DbSet<Movement> Movements { get; set; }
+        public virtual DbSet<Person> Persons { get; set; }
+        public virtual DbSet<TypeOfMovement> TypeOfMovements { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Wallet> Wallets { get; set; }
     }
 }

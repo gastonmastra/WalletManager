@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Wallet.Boundarys;
+using WalletManager.Boundarys;
 
-namespace Wallet
+namespace WalletManager
 {
     public partial class Principal : Form
     {

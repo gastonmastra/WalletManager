@@ -1,5 +1,5 @@
 ﻿
-namespace Wallet
+namespace WalletManager
 {
     partial class Principal
     {

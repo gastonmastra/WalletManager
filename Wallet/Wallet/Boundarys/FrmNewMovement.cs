@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Wallet.Servicios;
+using WalletManager.Model;
+using WalletManager.Servicios;
 
-namespace Wallet.Boundarys
+namespace WalletManager.Boundarys
 {
     public partial class FrmNewMovement : Form
     {
-        private UsuarioServicio usuarioServicio;
+        private ServicioClasificaciones servicioClasificaciones;
+        private ServicioWallets servicioWallets;
         private Principal principal;
 
         public FrmNewMovement()
@@ -24,7 +26,8 @@ namespace Wallet.Boundarys
         public FrmNewMovement(Principal _principal)
         {
             principal = _principal;
-            usuarioServicio = new UsuarioServicio();
+            servicioClasificaciones = new ServicioClasificaciones();
+            servicioWallets = new ServicioWallets();
             InitializeComponent();
 
         }
@@ -38,7 +41,34 @@ namespace Wallet.Boundarys
 
         private void NewMovement_Load(object sender, EventArgs e)
         {
+            ChargeClasifications(cmbClasification);
+            ChargeWallets(cmbWallets);
+        }
 
+        private void ChargeClasifications(ComboBox combo)
+        {
+            var clasifications = servicioClasificaciones.GetAll();
+            var bindingSource = new BindingSource();
+            bindingSource.DataSource = clasifications;
+            combo.DataSource = bindingSource;
+            combo.DisplayMember = "name";
+            combo.ValueMember = "id_clasification";
+        }
+        private void ChargeWallets(ComboBox combo)
+        {
+            var wallets = servicioWallets.GetAll();
+            var bindingSource = new BindingSource();
+            bindingSource.DataSource = wallets;
+            combo.DataSource = bindingSource;
+            combo.DisplayMember = "walletName";
+            combo.ValueMember = "id_wallet";
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            Movement movement = new Movement();
+            movement.Clasification = (Clasification)cmbClasification.SelectedItem;
+            movement.Wallets = (Wallet)cmbWallets.SelectedItem;
         }
     }
 }

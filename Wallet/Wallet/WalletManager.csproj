@@ -79,46 +79,50 @@
     <Compile Include="Boundarys\FrmNewMovement.Designer.cs">
       <DependentUpon>FrmNewMovement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\clasification.cs">
+    <Compile Include="Model\Clasification.cs">
       <DependentUpon>EFModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\EFModel.Context.cs">
+    <Compile Include="Model\EFModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EFModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\EFModel.cs">
+    <Compile Include="Model\EFModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EFModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\EFModel.Designer.cs">
+    <Compile Include="Model\EFModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EFModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Entities\fixedExpense.cs">
+    <Compile Include="Model\FixedExpense.cs">
       <DependentUpon>EFModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\movement.cs">
+    <Compile Include="Model\Movement.cs">
       <DependentUpon>EFModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\person.cs">
+    <Compile Include="Model\Person.cs">
       <DependentUpon>EFModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\typeOfMovement.cs">
+    <Compile Include="Model\TypeOfMovement.cs">
       <DependentUpon>EFModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\user.cs">
+    <Compile Include="Model\User.cs">
       <DependentUpon>EFModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\wallet.cs">
+    <Compile Include="Model\Wallet.cs">
       <DependentUpon>EFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Repositorio.cs" />
+    <Compile Include="Repository\RepositorioClasificacion.cs" />
+    <Compile Include="Repository\RepositorioWallet.cs" />
     <Compile Include="Repository\UsuarioRepositorio.cs" />
+    <Compile Include="Servicios\ServicioClasificaciones.cs" />
+    <Compile Include="Servicios\ServicioWallets.cs" />
     <Compile Include="Servicios\UsuarioServicio.cs" />
     <EmbeddedResource Include="Boundarys\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -141,11 +145,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Entities\EFModel.edmx">
+    <EntityDeploy Include="Model\EFModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EFModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entities\EFModel.edmx.diagram">
+    <None Include="Model\EFModel.edmx.diagram">
       <DependentUpon>EFModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -163,18 +167,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Entities\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Entities\EFModel.Context.tt">
+    <Content Include="Model\EFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EFModel.edmx</DependentUpon>
       <LastGenOutput>EFModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entities\EFModel.tt">
+    <Content Include="Model\EFModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EFModel.edmx</DependentUpon>
       <LastGenOutput>EFModel.cs</LastGenOutput>

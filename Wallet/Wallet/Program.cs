@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Wallet.Boundarys;
-using Wallet.Entities;
 
-namespace Wallet
+namespace WalletManager
 {
     static class Program
     {

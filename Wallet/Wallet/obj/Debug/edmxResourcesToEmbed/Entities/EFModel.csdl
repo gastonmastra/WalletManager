@@ -5,7 +5,7 @@
       <PropertyRef Name="id_clasification" />
     </Key>
     <Property Name="id_clasification" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="description" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="movements" Relationship="Self.fk_movement_clasification" FromRole="clasifications" ToRole="movements" />
   </EntityType>
   <EntityType Name="fixedExpense">
@@ -14,8 +14,8 @@
     </Key>
     <Property Name="id_fixedExpense" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="mount" Type="Decimal" Precision="2" Scale="0" />
-    <Property Name="name" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
-    <Property Name="description" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="wallets" Relationship="Self.fixedExpense_x_wallets" FromRole="fixedExpense" ToRole="wallets" />
   </EntityType>
   <EntityType Name="movement">
@@ -23,8 +23,8 @@
       <PropertyRef Name="id_movement" />
     </Key>
     <Property Name="id_movement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descrip" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-    <Property Name="isDebt" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="descrip" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="isDebt" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
     <Property Name="idDeudor" Type="Int32" />
     <Property Name="mount" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
     <Property Name="id_typeMovement" Type="Int32" Nullable="false" />
@@ -32,14 +32,15 @@
     <NavigationProperty Name="clasification" Relationship="Self.fk_movement_clasification" FromRole="movements" ToRole="clasifications" />
     <NavigationProperty Name="person" Relationship="Self.fk_movement_person" FromRole="movements" ToRole="persons" />
     <NavigationProperty Name="typeOfMovement" Relationship="Self.fk_movement_typeOfMovement" FromRole="movements" ToRole="typeOfMovements" />
+    <NavigationProperty Name="wallets" Relationship="walletManagerDBModel.movement_x_wallet" FromRole="movement" ToRole="wallet" />
   </EntityType>
   <EntityType Name="person">
     <Key>
       <PropertyRef Name="idPerson" />
     </Key>
     <Property Name="idPerson" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="surname" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="surname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="debt" Type="Decimal" Precision="2" Scale="0" />
     <NavigationProperty Name="movements" Relationship="Self.fk_movement_person" FromRole="persons" ToRole="movements" />
   </EntityType>
@@ -48,7 +49,7 @@
       <PropertyRef Name="id_typeMovement" />
     </Key>
     <Property Name="id_typeMovement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="movements" Relationship="Self.fk_movement_typeOfMovement" FromRole="typeOfMovements" ToRole="movements" />
   </EntityType>
   <EntityType Name="user">
@@ -56,8 +57,8 @@
       <PropertyRef Name="id_user" />
     </Key>
     <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="username" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="passwd" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="passwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="wallets" Relationship="Self.wallets_x_users" FromRole="users" ToRole="wallets" />
   </EntityType>
   <EntityType Name="wallet">
@@ -65,9 +66,10 @@
       <PropertyRef Name="id_wallet" />
     </Key>
     <Property Name="id_wallet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="walletName" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="walletName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="fixedExpenses" Relationship="Self.fixedExpense_x_wallets" FromRole="wallets" ToRole="fixedExpense" />
     <NavigationProperty Name="users" Relationship="Self.wallets_x_users" FromRole="wallets" ToRole="users" />
+    <NavigationProperty Name="movements" Relationship="walletManagerDBModel.movement_x_wallet" FromRole="wallet" ToRole="movement" />
   </EntityType>
   <Association Name="fk_movement_clasification">
     <End Role="clasifications" Type="Self.clasification" Multiplicity="1" />
@@ -141,5 +143,13 @@
       <End Role="users" EntitySet="users" />
       <End Role="wallets" EntitySet="wallets" />
     </AssociationSet>
+    <AssociationSet Name="movement_x_wallet" Association="walletManagerDBModel.movement_x_wallet">
+      <End Role="movement" EntitySet="movements" />
+      <End Role="wallet" EntitySet="wallets" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="movement_x_wallet">
+    <End Type="walletManagerDBModel.movement" Role="movement" Multiplicity="*" />
+    <End Type="walletManagerDBModel.wallet" Role="wallet" Multiplicity="*" />
+  </Association>
 </Schema>

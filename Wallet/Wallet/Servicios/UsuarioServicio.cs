@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Wallet.Entities;
-using Wallet.Repository;
+using WalletManager.Model;
+using WalletManager.Repository;
 
-namespace Wallet.Servicios
+namespace WalletManager.Servicios
 {
     class UsuarioServicio
     {
         private UsuarioRepositorio usuarioRepositorio;
-        public static user usuarioLogueado;
+        public static User usuarioLogueado;
 
         public UsuarioServicio()
         {
             usuarioRepositorio = new UsuarioRepositorio();
         }
-        public user Login(user usuarioIngresado)
+        public User Login(User usuarioIngresado)
         {
             var usuario = usuarioRepositorio.LoginBD(usuarioIngresado);
             usuarioLogueado = usuario;

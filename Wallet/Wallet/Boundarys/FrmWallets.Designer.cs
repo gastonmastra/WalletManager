@@ -1,5 +1,5 @@
 ﻿
-namespace Wallet.Boundarys
+namespace WalletManager.Boundarys
 {
     partial class FrmWallets
     {

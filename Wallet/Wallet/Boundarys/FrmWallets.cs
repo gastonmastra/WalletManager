@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Wallet.Boundarys
+namespace WalletManager.Boundarys
 {
     public partial class FrmWallets : Form
     {

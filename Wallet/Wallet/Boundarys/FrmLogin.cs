@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Wallet.Entities;
-using Wallet.Servicios;
+using WalletManager.Model;
+using WalletManager.Servicios;
 
-namespace Wallet.Boundarys
+namespace WalletManager.Boundarys
 {
     public partial class FrmLogin : Form
     {
@@ -23,7 +23,7 @@ namespace Wallet.Boundarys
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var usuario = new user();
+            var usuario = new User();
             usuario.username = txtName.Text;
             usuario.passwd = txtPassword.Text;
 
@@ -36,5 +36,9 @@ namespace Wallet.Boundarys
             }
         }
 
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

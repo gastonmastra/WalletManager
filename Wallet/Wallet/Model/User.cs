@@ -7,25 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Wallet.Entities
+namespace Wallet.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class person
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public person()
+        public User()
         {
-            this.movements = new HashSet<movement>();
+            this.Wallets = new HashSet<Wallet>();
         }
     
-        public int idPerson { get; set; }
-        public string name { get; set; }
-        public string surname { get; set; }
-        public Nullable<decimal> debt { get; set; }
+        public int id_user { get; set; }
+        public string username { get; set; }
+        public string passwd { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<movement> movements { get; set; }
+        public virtual ICollection<Wallet> Wallets { get; set; }
     }
 }

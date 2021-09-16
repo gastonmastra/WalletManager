@@ -1,5 +1,5 @@
 ﻿
-namespace Wallet.Boundarys
+namespace WalletManager.Boundarys
 {
     partial class FrmNewMovement
     {
@@ -30,15 +30,15 @@ namespace Wallet.Boundarys
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNewMovement));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbWallets = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbClasification = new System.Windows.Forms.ComboBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -46,18 +46,18 @@ namespace Wallet.Boundarys
             this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cmbWallets
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.MenuText;
-            this.comboBox1.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, System.Drawing.FontStyle.Bold);
-            this.comboBox1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(320, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.comboBox1.Size = new System.Drawing.Size(218, 31);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.Text = "Wallet";
+            this.cmbWallets.BackColor = System.Drawing.SystemColors.MenuText;
+            this.cmbWallets.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, System.Drawing.FontStyle.Bold);
+            this.cmbWallets.ForeColor = System.Drawing.Color.DarkCyan;
+            this.cmbWallets.FormattingEnabled = true;
+            this.cmbWallets.Location = new System.Drawing.Point(320, 12);
+            this.cmbWallets.Name = "cmbWallets";
+            this.cmbWallets.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cmbWallets.Size = new System.Drawing.Size(218, 31);
+            this.cmbWallets.TabIndex = 0;
+            this.cmbWallets.Text = "Wallet";
             // 
             // textBox1
             // 
@@ -98,18 +98,19 @@ namespace Wallet.Boundarys
             this.radioButton2.Text = "Spent";
             this.radioButton2.UseVisualStyleBackColor = false;
             // 
-            // comboBox2
+            // cmbClasification
             // 
-            this.comboBox2.BackColor = System.Drawing.SystemColors.MenuText;
-            this.comboBox2.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, System.Drawing.FontStyle.Bold);
-            this.comboBox2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(12, 12);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.comboBox2.Size = new System.Drawing.Size(218, 31);
-            this.comboBox2.TabIndex = 4;
-            this.comboBox2.Text = "Clasification";
+            this.cmbClasification.BackColor = System.Drawing.SystemColors.MenuText;
+            this.cmbClasification.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, System.Drawing.FontStyle.Bold);
+            this.cmbClasification.ForeColor = System.Drawing.Color.DarkCyan;
+            this.cmbClasification.FormattingEnabled = true;
+            this.cmbClasification.Location = new System.Drawing.Point(12, 12);
+            this.cmbClasification.Name = "cmbClasification";
+            this.cmbClasification.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cmbClasification.Size = new System.Drawing.Size(218, 31);
+            this.cmbClasification.Sorted = true;
+            this.cmbClasification.TabIndex = 4;
+            this.cmbClasification.Text = "Clasification";
             // 
             // richTextBox1
             // 
@@ -149,17 +150,18 @@ namespace Wallet.Boundarys
             this.comboBox3.TabIndex = 7;
             this.comboBox3.Text = "Person";
             // 
-            // button1
+            // btnConfirm
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.MenuText;
-            this.button1.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.button1.Location = new System.Drawing.Point(357, 346);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 36);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Confirm";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnConfirm.BackColor = System.Drawing.SystemColors.MenuText;
+            this.btnConfirm.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnConfirm.Location = new System.Drawing.Point(357, 346);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(109, 36);
+            this.btnConfirm.TabIndex = 4;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // button2
             // 
@@ -232,15 +234,15 @@ namespace Wallet.Boundarys
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmbClasification);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbWallets);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmNewMovement";
             this.Text = "New Movement";
@@ -253,15 +255,15 @@ namespace Wallet.Boundarys
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbWallets;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbClasification;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;

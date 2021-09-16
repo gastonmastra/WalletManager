@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Wallet.Properties
+namespace WalletManager.Properties
 {
     /// <summary>
     ///   Clase de recurso fuertemente tipado para buscar cadenas traducidas, etc.

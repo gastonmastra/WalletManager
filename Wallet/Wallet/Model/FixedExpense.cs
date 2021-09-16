@@ -7,23 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Wallet.Entities
+namespace Wallet.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class clasification
+    public partial class FixedExpense
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public clasification()
+        public FixedExpense()
         {
-            this.movements = new HashSet<movement>();
+            this.Wallets = new HashSet<Wallet>();
         }
     
-        public int id_clasification { get; set; }
+        public int id_fixedExpense { get; set; }
+        public Nullable<decimal> mount { get; set; }
+        public string name { get; set; }
         public string description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<movement> movements { get; set; }
+        public virtual ICollection<Wallet> Wallets { get; set; }
     }
 }

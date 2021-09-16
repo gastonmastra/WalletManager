@@ -7,23 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Wallet.Entities
+namespace Wallet.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class typeOfMovement
+    public partial class Clasification
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public typeOfMovement()
+        public Clasification()
         {
-            this.movements = new HashSet<movement>();
+            this.Movements = new HashSet<Movement>();
         }
     
-        public int id_typeMovement { get; set; }
+        public int id_clasification { get; set; }
         public string name { get; set; }
+        public string description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<movement> movements { get; set; }
+        public virtual ICollection<Movement> Movements { get; set; }
     }
 }

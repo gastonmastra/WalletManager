@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="walletManagerDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="clasifications">
+  <EntityType Name="Clasifications">
     <Key>
       <PropertyRef Name="id_clasification" />
     </Key>
     <Property Name="id_clasification" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="20" />
     <Property Name="description" Type="varchar" MaxLength="100" />
   </EntityType>
-  <EntityType Name="fixedExpense">
+  <EntityType Name="FixedExpense">
     <Key>
       <PropertyRef Name="id_fixedExpense" />
     </Key>
@@ -16,7 +17,7 @@
     <Property Name="name" Type="varchar" MaxLength="15" />
     <Property Name="description" Type="varchar" MaxLength="100" />
   </EntityType>
-  <EntityType Name="fixedExpense_x_wallets">
+  <EntityType Name="FixedExpense_x_wallets">
     <Key>
       <PropertyRef Name="id_fixedExpense" />
       <PropertyRef Name="id_wallet" />
@@ -32,7 +33,7 @@
     <Property Name="id_wallet" Type="int" Nullable="false" />
     <Property Name="id_movement" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="movements">
+  <EntityType Name="Movements">
     <Key>
       <PropertyRef Name="id_movement" />
     </Key>
@@ -44,7 +45,7 @@
     <Property Name="id_typeMovement" Type="int" Nullable="false" />
     <Property Name="id_clasification" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="persons">
+  <EntityType Name="Persons">
     <Key>
       <PropertyRef Name="idPerson" />
     </Key>
@@ -53,14 +54,14 @@
     <Property Name="surname" Type="varchar" MaxLength="20" />
     <Property Name="debt" Type="decimal" Precision="2" Scale="0" />
   </EntityType>
-  <EntityType Name="typeOfMovements">
+  <EntityType Name="TypeOfMovements">
     <Key>
       <PropertyRef Name="id_typeMovement" />
     </Key>
     <Property Name="id_typeMovement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="varchar" MaxLength="20" />
   </EntityType>
-  <EntityType Name="users">
+  <EntityType Name="Users">
     <Key>
       <PropertyRef Name="id_user" />
     </Key>
@@ -68,14 +69,14 @@
     <Property Name="username" Type="varchar" MaxLength="20" />
     <Property Name="passwd" Type="varchar" MaxLength="20" />
   </EntityType>
-  <EntityType Name="wallets">
+  <EntityType Name="Wallets">
     <Key>
       <PropertyRef Name="id_wallet" />
     </Key>
     <Property Name="id_wallet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="walletName" Type="varchar" MaxLength="20" />
   </EntityType>
-  <EntityType Name="wallets_x_users">
+  <EntityType Name="Wallets_x_users">
     <Key>
       <PropertyRef Name="id_user" />
       <PropertyRef Name="id_wallet" />
@@ -84,70 +85,70 @@
     <Property Name="id_wallet" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="fk_fixedExpense_x_wallets_fixedExpense">
-    <End Role="fixedExpense" Type="Self.fixedExpense" Multiplicity="1" />
-    <End Role="fixedExpense_x_wallets" Type="Self.fixedExpense_x_wallets" Multiplicity="*" />
+    <End Role="FixedExpense" Type="Self.FixedExpense" Multiplicity="1" />
+    <End Role="FixedExpense_x_wallets" Type="Self.FixedExpense_x_wallets" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="fixedExpense">
+      <Principal Role="FixedExpense">
         <PropertyRef Name="id_fixedExpense" />
       </Principal>
-      <Dependent Role="fixedExpense_x_wallets">
+      <Dependent Role="FixedExpense_x_wallets">
         <PropertyRef Name="id_fixedExpense" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_fixedExpense_x_wallets_wallet">
-    <End Role="wallets" Type="Self.wallets" Multiplicity="1" />
-    <End Role="fixedExpense_x_wallets" Type="Self.fixedExpense_x_wallets" Multiplicity="*" />
+    <End Role="Wallets" Type="Self.Wallets" Multiplicity="1" />
+    <End Role="FixedExpense_x_wallets" Type="Self.FixedExpense_x_wallets" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="wallets">
+      <Principal Role="Wallets">
         <PropertyRef Name="id_wallet" />
       </Principal>
-      <Dependent Role="fixedExpense_x_wallets">
+      <Dependent Role="FixedExpense_x_wallets">
         <PropertyRef Name="id_wallet" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_movement_clasification">
-    <End Role="clasifications" Type="Self.clasifications" Multiplicity="1" />
-    <End Role="movements" Type="Self.movements" Multiplicity="*" />
+    <End Role="Clasifications" Type="Self.Clasifications" Multiplicity="1" />
+    <End Role="Movements" Type="Self.Movements" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="clasifications">
+      <Principal Role="Clasifications">
         <PropertyRef Name="id_clasification" />
       </Principal>
-      <Dependent Role="movements">
+      <Dependent Role="Movements">
         <PropertyRef Name="id_clasification" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_movement_person">
-    <End Role="persons" Type="Self.persons" Multiplicity="0..1" />
-    <End Role="movements" Type="Self.movements" Multiplicity="*" />
+    <End Role="Persons" Type="Self.Persons" Multiplicity="0..1" />
+    <End Role="Movements" Type="Self.Movements" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="persons">
+      <Principal Role="Persons">
         <PropertyRef Name="idPerson" />
       </Principal>
-      <Dependent Role="movements">
+      <Dependent Role="Movements">
         <PropertyRef Name="idDeudor" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_movement_typeOfMovement">
-    <End Role="typeOfMovements" Type="Self.typeOfMovements" Multiplicity="1" />
-    <End Role="movements" Type="Self.movements" Multiplicity="*" />
+    <End Role="TypeOfMovements" Type="Self.TypeOfMovements" Multiplicity="1" />
+    <End Role="Movements" Type="Self.Movements" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="typeOfMovements">
+      <Principal Role="TypeOfMovements">
         <PropertyRef Name="id_typeMovement" />
       </Principal>
-      <Dependent Role="movements">
+      <Dependent Role="Movements">
         <PropertyRef Name="id_typeMovement" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_movement_x_wallet_movement">
-    <End Role="movements" Type="Self.movements" Multiplicity="1" />
+    <End Role="Movements" Type="Self.Movements" Multiplicity="1" />
     <End Role="movement_x_wallet" Type="Self.movement_x_wallet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="movements">
+      <Principal Role="Movements">
         <PropertyRef Name="id_movement" />
       </Principal>
       <Dependent Role="movement_x_wallet">
@@ -156,10 +157,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_movement_x_wallet_wallet">
-    <End Role="wallets" Type="Self.wallets" Multiplicity="1" />
+    <End Role="Wallets" Type="Self.Wallets" Multiplicity="1" />
     <End Role="movement_x_wallet" Type="Self.movement_x_wallet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="wallets">
+      <Principal Role="Wallets">
         <PropertyRef Name="id_wallet" />
       </Principal>
       <Dependent Role="movement_x_wallet">
@@ -168,75 +169,75 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_wallet_x_user_user">
-    <End Role="users" Type="Self.users" Multiplicity="1" />
-    <End Role="wallets_x_users" Type="Self.wallets_x_users" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Wallets_x_users" Type="Self.Wallets_x_users" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="users">
+      <Principal Role="Users">
         <PropertyRef Name="id_user" />
       </Principal>
-      <Dependent Role="wallets_x_users">
+      <Dependent Role="Wallets_x_users">
         <PropertyRef Name="id_user" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_wallet_x_user_wallet">
-    <End Role="wallets" Type="Self.wallets" Multiplicity="1" />
-    <End Role="wallets_x_users" Type="Self.wallets_x_users" Multiplicity="*" />
+    <End Role="Wallets" Type="Self.Wallets" Multiplicity="1" />
+    <End Role="Wallets_x_users" Type="Self.Wallets_x_users" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="wallets">
+      <Principal Role="Wallets">
         <PropertyRef Name="id_wallet" />
       </Principal>
-      <Dependent Role="wallets_x_users">
+      <Dependent Role="Wallets_x_users">
         <PropertyRef Name="id_wallet" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="walletManagerDBModelStoreContainer">
-    <EntitySet Name="clasifications" EntityType="Self.clasifications" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="fixedExpense" EntityType="Self.fixedExpense" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="fixedExpense_x_wallets" EntityType="Self.fixedExpense_x_wallets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clasifications" EntityType="Self.Clasifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FixedExpense" EntityType="Self.FixedExpense" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FixedExpense_x_wallets" EntityType="Self.FixedExpense_x_wallets" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="movement_x_wallet" EntityType="Self.movement_x_wallet" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="movements" EntityType="Self.movements" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="persons" EntityType="Self.persons" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="typeOfMovements" EntityType="Self.typeOfMovements" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="wallets" EntityType="Self.wallets" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="wallets_x_users" EntityType="Self.wallets_x_users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Movements" EntityType="Self.Movements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Persons" EntityType="Self.Persons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeOfMovements" EntityType="Self.TypeOfMovements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Wallets" EntityType="Self.Wallets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Wallets_x_users" EntityType="Self.Wallets_x_users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="fk_fixedExpense_x_wallets_fixedExpense" Association="Self.fk_fixedExpense_x_wallets_fixedExpense">
-      <End Role="fixedExpense" EntitySet="fixedExpense" />
-      <End Role="fixedExpense_x_wallets" EntitySet="fixedExpense_x_wallets" />
+      <End Role="FixedExpense" EntitySet="FixedExpense" />
+      <End Role="FixedExpense_x_wallets" EntitySet="FixedExpense_x_wallets" />
     </AssociationSet>
     <AssociationSet Name="fk_fixedExpense_x_wallets_wallet" Association="Self.fk_fixedExpense_x_wallets_wallet">
-      <End Role="wallets" EntitySet="wallets" />
-      <End Role="fixedExpense_x_wallets" EntitySet="fixedExpense_x_wallets" />
+      <End Role="Wallets" EntitySet="Wallets" />
+      <End Role="FixedExpense_x_wallets" EntitySet="FixedExpense_x_wallets" />
     </AssociationSet>
     <AssociationSet Name="fk_movement_clasification" Association="Self.fk_movement_clasification">
-      <End Role="clasifications" EntitySet="clasifications" />
-      <End Role="movements" EntitySet="movements" />
+      <End Role="Clasifications" EntitySet="Clasifications" />
+      <End Role="Movements" EntitySet="Movements" />
     </AssociationSet>
     <AssociationSet Name="fk_movement_person" Association="Self.fk_movement_person">
-      <End Role="persons" EntitySet="persons" />
-      <End Role="movements" EntitySet="movements" />
+      <End Role="Persons" EntitySet="Persons" />
+      <End Role="Movements" EntitySet="Movements" />
     </AssociationSet>
     <AssociationSet Name="fk_movement_typeOfMovement" Association="Self.fk_movement_typeOfMovement">
-      <End Role="typeOfMovements" EntitySet="typeOfMovements" />
-      <End Role="movements" EntitySet="movements" />
+      <End Role="TypeOfMovements" EntitySet="TypeOfMovements" />
+      <End Role="Movements" EntitySet="Movements" />
     </AssociationSet>
     <AssociationSet Name="fk_movement_x_wallet_movement" Association="Self.fk_movement_x_wallet_movement">
-      <End Role="movements" EntitySet="movements" />
+      <End Role="Movements" EntitySet="Movements" />
       <End Role="movement_x_wallet" EntitySet="movement_x_wallet" />
     </AssociationSet>
     <AssociationSet Name="fk_movement_x_wallet_wallet" Association="Self.fk_movement_x_wallet_wallet">
-      <End Role="wallets" EntitySet="wallets" />
+      <End Role="Wallets" EntitySet="Wallets" />
       <End Role="movement_x_wallet" EntitySet="movement_x_wallet" />
     </AssociationSet>
     <AssociationSet Name="fk_wallet_x_user_user" Association="Self.fk_wallet_x_user_user">
-      <End Role="users" EntitySet="users" />
-      <End Role="wallets_x_users" EntitySet="wallets_x_users" />
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Wallets_x_users" EntitySet="Wallets_x_users" />
     </AssociationSet>
     <AssociationSet Name="fk_wallet_x_user_wallet" Association="Self.fk_wallet_x_user_wallet">
-      <End Role="wallets" EntitySet="wallets" />
-      <End Role="wallets_x_users" EntitySet="wallets_x_users" />
+      <End Role="Wallets" EntitySet="Wallets" />
+      <End Role="Wallets_x_users" EntitySet="Wallets_x_users" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
