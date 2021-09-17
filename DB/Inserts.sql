@@ -1,5 +1,5 @@
 use WalletManagerDB
-insert into wallets (id_wallet, walletName) values ('Billetera')
+insert into wallets (walletName) values ('Billetera')
 insert into users values ('gastonmastra', '123')
 insert into clasifications values ('Comida','Gastos correspondientes a comidas, meriendas, etc.')
 insert into clasifications values ('Salidas', 'Gastos correspondientes a salidas con los chicos, alcohol, etc.')

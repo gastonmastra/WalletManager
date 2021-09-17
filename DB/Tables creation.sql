@@ -67,6 +67,7 @@ constraint pk_person PRIMARY KEY(idPerson)
 create table Movements
 (
 id_movement			int identity,
+id_wallet			int not null,
 descrip				varchar(100),
 isDebt				varchar(1) default 'N',
 idDeudor			int,
@@ -74,18 +75,12 @@ mount				decimal(2) not null,
 id_typeMovement		int not null,
 id_clasification	int not null,
 constraint pk_movement PRIMARY KEY (id_movement),
+constraint fk_movement_wallet FOREIGN KEY (id_wallet) REFERENCES Wallets(id_wallet),
 constraint fk_movement_typeOfMovement FOREIGN KEY (id_typeMovement) REFERENCES typeOfMovements(id_typeMovement),
 constraint fk_movement_clasification FOREIGN KEY (id_clasification) REFERENCES clasifications (id_clasification),
 constraint fk_movement_person FOREIGN KEY (idDeudor) REFERENCES persons (idPerson)
 )
-create table movement_x_wallet
-(
-id_wallet		int unique,
-id_movement		int,
-constraint pk_movement_x_wallet PRIMARY KEY (id_wallet, id_movement),
-constraint fk_movement_x_wallet_wallet FOREIGN KEY (id_wallet) REFERENCES wallets (id_wallet),
-constraint fk_movement_x_wallet_movement FOREIGN KEY (id_movement) REFERENCES movements (id_movement)
-)
+
 create database WalletManagerDB
 use WalletManagerDB
 select * from clasifications
