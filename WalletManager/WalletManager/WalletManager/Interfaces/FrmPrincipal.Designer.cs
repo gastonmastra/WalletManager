@@ -32,7 +32,7 @@ namespace WalletManager
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.btnViewMovements = new System.Windows.Forms.Button();
             this.btnNewMovement = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMovements = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -62,17 +62,18 @@ namespace WalletManager
             this.btnNewMovement.UseVisualStyleBackColor = false;
             this.btnNewMovement.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button2
+            // btnMovements
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.MenuText;
-            this.button2.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.button2.Location = new System.Drawing.Point(115, 210);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(315, 93);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "New movement";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnMovements.BackColor = System.Drawing.SystemColors.MenuText;
+            this.btnMovements.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnMovements.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnMovements.Location = new System.Drawing.Point(115, 210);
+            this.btnMovements.Name = "btnMovements";
+            this.btnMovements.Size = new System.Drawing.Size(315, 93);
+            this.btnMovements.TabIndex = 1;
+            this.btnMovements.Text = "Movements";
+            this.btnMovements.UseVisualStyleBackColor = false;
+            this.btnMovements.Click += new System.EventHandler(this.btnMovements_Click);
             // 
             // button3
             // 
@@ -106,11 +107,12 @@ namespace WalletManager
             this.ClientSize = new System.Drawing.Size(543, 524);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnMovements);
             this.Controls.Add(this.btnNewMovement);
             this.Controls.Add(this.btnViewMovements);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Principal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Principal_FormClosing);
             this.Load += new System.EventHandler(this.Principal_Load);
@@ -122,7 +124,7 @@ namespace WalletManager
 
         private System.Windows.Forms.Button btnViewMovements;
         private System.Windows.Forms.Button btnNewMovement;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMovements;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
     }

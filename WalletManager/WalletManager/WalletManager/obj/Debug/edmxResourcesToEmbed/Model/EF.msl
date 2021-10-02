@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBStoreContainer" CdmEntityContainer="DBContext">
+    <EntitySetMapping Name="Clasifications">
+      <EntityTypeMapping TypeName="DB.Clasifications">
+        <MappingFragment StoreEntitySet="Clasifications">
+          <ScalarProperty Name="id_clasification" ColumnName="id_clasification" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FixedExpense">
+      <EntityTypeMapping TypeName="DB.FixedExpense">
+        <MappingFragment StoreEntitySet="FixedExpense">
+          <ScalarProperty Name="id_fixedExpense" ColumnName="id_fixedExpense" />
+          <ScalarProperty Name="mount" ColumnName="mount" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Movements">
+      <EntityTypeMapping TypeName="DB.Movements">
+        <MappingFragment StoreEntitySet="Movements">
+          <ScalarProperty Name="id_movement" ColumnName="id_movement" />
+          <ScalarProperty Name="id_wallet" ColumnName="id_wallet" />
+          <ScalarProperty Name="descrip" ColumnName="descrip" />
+          <ScalarProperty Name="isDebt" ColumnName="isDebt" />
+          <ScalarProperty Name="idDeudor" ColumnName="idDeudor" />
+          <ScalarProperty Name="mount" ColumnName="mount" />
+          <ScalarProperty Name="id_typeMovement" ColumnName="id_typeMovement" />
+          <ScalarProperty Name="id_clasification" ColumnName="id_clasification" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Persons">
+      <EntityTypeMapping TypeName="DB.Persons">
+        <MappingFragment StoreEntitySet="Persons">
+          <ScalarProperty Name="idPerson" ColumnName="idPerson" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="debt" ColumnName="debt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeOfMovements">
+      <EntityTypeMapping TypeName="DB.TypeOfMovements">
+        <MappingFragment StoreEntitySet="TypeOfMovements">
+          <ScalarProperty Name="id_typeMovement" ColumnName="id_typeMovement" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DB.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="passwd" ColumnName="passwd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wallets">
+      <EntityTypeMapping TypeName="DB.Wallets">
+        <MappingFragment StoreEntitySet="Wallets">
+          <ScalarProperty Name="id_wallet" ColumnName="id_wallet" />
+          <ScalarProperty Name="walletName" ColumnName="walletName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FixedExpense_x_wallets" TypeName="DB.FixedExpense_x_wallets" StoreEntitySet="FixedExpense_x_wallets">
+      <EndProperty Name="FixedExpense">
+        <ScalarProperty Name="id_fixedExpense" ColumnName="id_fixedExpense" />
+      </EndProperty>
+      <EndProperty Name="Wallets">
+        <ScalarProperty Name="id_wallet" ColumnName="id_wallet" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Wallets_x_users" TypeName="DB.Wallets_x_users" StoreEntitySet="Wallets_x_users">
+      <EndProperty Name="Users">
+        <ScalarProperty Name="id_user" ColumnName="id_user" />
+      </EndProperty>
+      <EndProperty Name="Wallets">
+        <ScalarProperty Name="id_wallet" ColumnName="id_wallet" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

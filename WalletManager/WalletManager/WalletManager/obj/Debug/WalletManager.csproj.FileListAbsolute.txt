@@ -16,3 +16,5 @@ A:\WalletManager\WalletManager\WalletManager\WalletManager\WalletManager\bin\Deb
 A:\WalletManager\WalletManager\WalletManager\WalletManager\WalletManager\obj\Debug\WalletManager.csproj.CopyComplete
 A:\WalletManager\WalletManager\WalletManager\WalletManager\WalletManager\obj\Debug\WalletManager.exe
 A:\WalletManager\WalletManager\WalletManager\WalletManager\WalletManager\obj\Debug\WalletManager.pdb
+A:\WalletManager\WalletManager\WalletManager\WalletManager\WalletManager\obj\Debug\WalletManager.Interfaces.FrmBase.resources
+A:\WalletManager\WalletManager\WalletManager\WalletManager\WalletManager\obj\Debug\WalletManager.Interfaces.FrmMovement.resources

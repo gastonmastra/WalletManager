@@ -8,67 +8,123 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WalletManager.Model;
+using WalletManager.Repository;
 using WalletManager.Services;
+using WalletManager.Utilities;
 
 namespace WalletManager.Boundarys
 {
-    public partial class FrmNewMovement : Form
+    public partial class FrmNewMovement : Interfaces.FrmBase
     {
-        private ServicioClasificaciones servicioClasificaciones;
-        private ServicioWallets servicioWallets;
-        private Principal principal;
+        private ServicioMovimiento _servicioMovimiento;
+        private ServicioClasificacion _servicioClasificacion;
+        private ServicioWallet _servicioWallet;
+        private Movements _newMovement;
+        private UnidadDeTrabajo _unidadDeTrabajo;
+        private ServicioTipoMovimiento _servicioTipoMovimiento;
+        private Principal _frmPrincipal;
 
-        public FrmNewMovement()
+        public FrmNewMovement(UnidadDeTrabajo unidadDeTrabajo, Principal principal)
         {
-            InitializeComponent();
-        }
-
-        public FrmNewMovement(Principal _principal)
-        {
-            principal = _principal;
-            servicioClasificaciones = new ServicioClasificaciones();
-            servicioWallets = new ServicioWallets();
+            _unidadDeTrabajo = unidadDeTrabajo;
+            _frmPrincipal = principal;
+            _servicioMovimiento = new ServicioMovimiento(_unidadDeTrabajo.RepositorioMovimiento);
+            _servicioClasificacion = new ServicioClasificacion(_unidadDeTrabajo.RepositorioClasificacion);
+            _servicioWallet = new ServicioWallet(_unidadDeTrabajo.RepositorioWallet);
+            _servicioTipoMovimiento = new ServicioTipoMovimiento(_unidadDeTrabajo.RepositorioTipoMovimiento);
             InitializeComponent();
 
         }
 
         private void NewMovement_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Dispose();
-            principal.Show();
-
+            this.Dispose();
+            _frmPrincipal.Show();
         }
 
         private void NewMovement_Load(object sender, EventArgs e)
         {
-            ChargeClasifications(cmbClasification);
-            ChargeWallets(cmbWallets);
+            ChargeData();
         }
 
-        private void ChargeClasifications(ComboBox combo)
+        private void ChargeData()
         {
-            var clasifications = servicioClasificaciones.GetAll();
-            var bindingSource = new BindingSource();
-            bindingSource.DataSource = clasifications;
-            combo.DataSource = bindingSource;
-            combo.DisplayMember = "name";
-            combo.ValueMember = "id_clasification";
-        }
-        private void ChargeWallets(ComboBox combo)
-        {
-            var wallets = servicioWallets.GetAll();
-            var bindingSource = new BindingSource();
-            bindingSource.DataSource = wallets;
-            combo.DataSource = bindingSource;
-            combo.DisplayMember = "walletName";
-            combo.ValueMember = "id_wallet";
+            List<Clasifications> clasifications = _servicioClasificacion.ListClasifications();
+            BindingSource conectorClasifications = new BindingSource();
+            conectorClasifications.DataSource = clasifications;
+            List<Wallets> wallets = _servicioWallet.ListWallets();
+            BindingSource conectorWallets = new BindingSource();
+            conectorWallets.DataSource = wallets;
+            List<TypeOfMovements> typesOfMovements = _servicioTipoMovimiento.ListTypesOfMovements();
+            BindingSource conectorTypeOfMovement = new BindingSource();
+            conectorTypeOfMovement.DataSource = typesOfMovements;
+            FrmUtilities.ChargeCombo(ref cmbClasification, conectorClasifications, "name", "id_clasification");
+            FrmUtilities.ChargeCombo(ref cmbWallets, conectorWallets, "walletName", "id_wallet");
+            FrmUtilities.ChargeCombo(ref cmbTypeOfMovement, conectorTypeOfMovement, "Name", "id_typeMovement");
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            Movement movement = new Movement();
-            movement.Clasification = (Clasification)cmbClasification.SelectedItem;
-            //movement.Wallets = (Wallet)cmbWallets.SelectedItem;
+            try
+            {
+                if (!IsConfirmedOperation())
+                    return;
+                if (!IsValidMovement())
+                    return;
+                RegisterMovement();
+            }
+            catch(ApplicationException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            catch(Exception ex)
+            {
+                string msg = ex.Message;
+                MessageBox.Show("Unespected error, try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+
+        }
+        private void RegisterMovement()
+        {
+            bool insertMovement = _servicioMovimiento.Insert(_newMovement);
+            if (!insertMovement)
+            {
+                MessageBox.Show("Ocurred an error", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            MessageBox.Show("The movement was succesfull registered", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Dispose();
+        }
+
+        private bool IsValidMovement()
+        {
+            Movements newMovement = new Movements();
+            newMovement.Clasifications = (Clasifications)cmbClasification.SelectedItem;
+            newMovement.Wallets = (Wallets)cmbWallets.SelectedItem;
+            newMovement.mount = Convert.ToDecimal(txtMount.Text);
+            newMovement.descrip = txtDescription.Text;
+            newMovement.TypeOfMovements = (TypeOfMovements)cmbTypeOfMovement.SelectedItem;
+            newMovement.date = DateTime.Today;
+
+            _servicioMovimiento.ValidarMovimiento(newMovement);
+            _newMovement = newMovement;
+            return true;
+        }
+
+        private bool IsConfirmedOperation()
+        {
+            if (MessageBox.Show("Do you want to confirm the operation?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                return true;
+            return false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

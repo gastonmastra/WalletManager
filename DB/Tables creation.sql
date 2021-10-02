@@ -25,7 +25,7 @@ constraint fk_wallet_x_user_wallet FOREIGN KEY (id_wallet) REFERENCES wallets(id
 create table FixedExpense
 (
 id_fixedExpense	int identity,
-mount			decimal(2),
+mount			decimal(18,2),
 name			varchar(15),
 description		varchar(100),
 constraint pk_fixedExpense PRIMARY KEY(id_fixedExpense)
@@ -60,7 +60,7 @@ create table Persons
 idPerson	int identity,
 name		varchar(20),
 surname		varchar(20),
-debt		decimal(2),
+debt		decimal(18,2),
 constraint pk_person PRIMARY KEY(idPerson)
 )
 
@@ -71,9 +71,10 @@ id_wallet			int not null,
 descrip				varchar(100),
 isDebt				varchar(1) default 'N',
 idDeudor			int,
-mount				decimal(2) not null,
+mount				decimal(18,2) not null,
 id_typeMovement		int not null,
 id_clasification	int not null,
+date				datetime not null,
 constraint pk_movement PRIMARY KEY (id_movement),
 constraint fk_movement_wallet FOREIGN KEY (id_wallet) REFERENCES Wallets(id_wallet),
 constraint fk_movement_typeOfMovement FOREIGN KEY (id_typeMovement) REFERENCES typeOfMovements(id_typeMovement),
@@ -83,5 +84,5 @@ constraint fk_movement_person FOREIGN KEY (idDeudor) REFERENCES persons (idPerso
 
 create database WalletManagerDB
 use WalletManagerDB
-select * from clasifications
+select * from movements
 insert into Users values('gastonmastra','123')

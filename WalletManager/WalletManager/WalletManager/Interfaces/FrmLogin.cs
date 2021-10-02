@@ -8,26 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WalletManager.Model;
+using WalletManager.Repository;
 using WalletManager.Services;
 
 namespace WalletManager.Boundarys
 {
     public partial class FrmLogin : Form
     {
-        private UsuarioServicio usuarioServicio;
-        public FrmLogin()
+        private ServicioUsuario _servicioUsuario;
+        private UnidadDeTrabajo _unidadDeTrabajo;
+        public FrmLogin(UnidadDeTrabajo unidadDeTrabajo)
         {
             InitializeComponent();
-            usuarioServicio = new UsuarioServicio();
+            _unidadDeTrabajo = unidadDeTrabajo;
+            _servicioUsuario = new ServicioUsuario(_unidadDeTrabajo.RepositorioUsuario);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var usuario = new User();
-            usuario.username = txtName.Text;
-            usuario.passwd = txtPassword.Text;
-
-            var usuarioLogueado = usuarioServicio.Login(usuario);
+            string username = txtName.Text;
+            string passwd = txtPassword.Text;
+            Users usuarioLogueado = _servicioUsuario.Login(username, passwd);
             if (usuarioLogueado == null)
                 MessageBox.Show("Usuario/Contraseña inválida", "Información", MessageBoxButtons.OK);
             else

@@ -7,14 +7,11 @@ using WalletManager.Model;
 
 namespace WalletManager.Repository
 {
-    public class Repositorio
+ 
+    public class RepositorioUsuario : Repositorio<Users>
     {
-        public WalletManagerDBEntities db;
-
-        public Repositorio()
+        public RepositorioUsuario(DBContext dbContext) : base(dbContext)
         {
-            db = new WalletManagerDBEntities();
         }
-        
     }
 }
