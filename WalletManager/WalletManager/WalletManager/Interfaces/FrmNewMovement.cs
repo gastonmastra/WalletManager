@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WalletManager.Interfaces;
 using WalletManager.Model;
 using WalletManager.Repository;
 using WalletManager.Services;
@@ -67,7 +68,7 @@ namespace WalletManager.Boundarys
         {
             try
             {
-                if (!IsConfirmedOperation())
+                if (!FrmUtilities.IsConfirmedOperation())
                     return;
                 if (!IsValidMovement())
                     return;
@@ -84,9 +85,6 @@ namespace WalletManager.Boundarys
                 MessageBox.Show("Unespected error, try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-
-
         }
         private void RegisterMovement()
         {
@@ -108,23 +106,23 @@ namespace WalletManager.Boundarys
             newMovement.mount = Convert.ToDecimal(txtMount.Text);
             newMovement.descrip = txtDescription.Text;
             newMovement.TypeOfMovements = (TypeOfMovements)cmbTypeOfMovement.SelectedItem;
-            newMovement.date = DateTime.Today;
+            newMovement.date = DateTime.Now;
 
             _servicioMovimiento.ValidarMovimiento(newMovement);
             _newMovement = newMovement;
             return true;
         }
 
-        private bool IsConfirmedOperation()
-        {
-            if (MessageBox.Show("Do you want to confirm the operation?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                return true;
-            return false;
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnAddClasification_Click(object sender, EventArgs e)
+        {
+            new FrmNewClasification(_unidadDeTrabajo, _frmPrincipal).ShowDialog();
+            ChargeData();
+
         }
     }
 }

@@ -56,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\EnumTypeOfMovement.cs" />
+    <Compile Include="Interfaces\FrmNewClasification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\FrmNewClasification.Designer.cs">
+      <DependentUpon>FrmNewClasification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\FrmBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\FrmMovement.resx">
       <DependentUpon>FrmMovement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\FrmNewClasification.resx">
+      <DependentUpon>FrmNewClasification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\FrmNewMovement.resx">
       <DependentUpon>FrmNewMovement.cs</DependentUpon>

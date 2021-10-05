@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WalletManager.Boundarys;
 using WalletManager.Enums;
 using WalletManager.Model;
 using WalletManager.Repository;
@@ -58,7 +59,7 @@ namespace WalletManager.Interfaces
                         acum -= movement.mount;
                     var fila = new string[]
                     {
-                        movement.date.ToString(),
+                        movement.date.ToString("yyyy-MM-dd HH:mm:ss"),
                         movement.mount.ToString(),
                         movement.descrip,
                         "-",
@@ -67,6 +68,25 @@ namespace WalletManager.Interfaces
                     };
                     dgvMovements.Rows.Add(fila);
                 }
+            }
+            this.dgvMovements.Sort(this.dgvMovements.Columns["Date"], ListSortDirection.Ascending);
+        }
+
+        private void btnNewMovement_Click(object sender, EventArgs e)
+        {
+            new FrmNewMovement(_unidadDeTrabajo, _principal).ShowDialog();
+            SearchMovements();
+        }
+        /// <summary>
+        /// complete
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dateSince_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateSince.Value < dateUntil.Value)
+            {
+
             }
         }
     }

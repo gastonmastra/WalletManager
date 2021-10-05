@@ -19,5 +19,11 @@ namespace WalletManager.Services
         {
             return _repositorioClasificacion.GetAll().ToList();
         }
+
+        internal void ValidarClasificacion(Clasifications newClasification)
+        {
+            if (string.IsNullOrEmpty(newClasification.name))
+                throw new ApplicationException("The name of the clasification is needed.");
+        }
     }
 }

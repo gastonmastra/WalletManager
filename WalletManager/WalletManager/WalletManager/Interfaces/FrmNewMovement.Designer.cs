@@ -37,9 +37,9 @@ namespace WalletManager.Boundarys
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnAddClasification = new System.Windows.Forms.Button();
+            this.btnAddWallet = new System.Windows.Forms.Button();
+            this.btnAddPerson = new System.Windows.Forms.Button();
             this.cmbTypeOfMovement = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -132,41 +132,42 @@ namespace WalletManager.Boundarys
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnAddClasification
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
-            this.button3.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(10)))), ((int)(((byte)(12)))));
-            this.button3.Location = new System.Drawing.Point(236, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(31, 31);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "+";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnAddClasification.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
+            this.btnAddClasification.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddClasification.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(10)))), ((int)(((byte)(12)))));
+            this.btnAddClasification.Location = new System.Drawing.Point(236, 12);
+            this.btnAddClasification.Name = "btnAddClasification";
+            this.btnAddClasification.Size = new System.Drawing.Size(31, 31);
+            this.btnAddClasification.TabIndex = 9;
+            this.btnAddClasification.Text = "+";
+            this.btnAddClasification.UseVisualStyleBackColor = false;
+            this.btnAddClasification.Click += new System.EventHandler(this.btnAddClasification_Click);
             // 
-            // button5
+            // btnAddWallet
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
-            this.button5.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(10)))), ((int)(((byte)(12)))));
-            this.button5.Location = new System.Drawing.Point(544, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(31, 31);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "+";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnAddWallet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
+            this.btnAddWallet.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddWallet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(10)))), ((int)(((byte)(12)))));
+            this.btnAddWallet.Location = new System.Drawing.Point(544, 12);
+            this.btnAddWallet.Name = "btnAddWallet";
+            this.btnAddWallet.Size = new System.Drawing.Size(31, 31);
+            this.btnAddWallet.TabIndex = 11;
+            this.btnAddWallet.Text = "+";
+            this.btnAddWallet.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btnAddPerson
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
-            this.button6.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(10)))), ((int)(((byte)(12)))));
-            this.button6.Location = new System.Drawing.Point(544, 84);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(31, 31);
-            this.button6.TabIndex = 12;
-            this.button6.Text = "+";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnAddPerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
+            this.btnAddPerson.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPerson.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(10)))), ((int)(((byte)(12)))));
+            this.btnAddPerson.Location = new System.Drawing.Point(544, 84);
+            this.btnAddPerson.Name = "btnAddPerson";
+            this.btnAddPerson.Size = new System.Drawing.Size(31, 31);
+            this.btnAddPerson.TabIndex = 12;
+            this.btnAddPerson.Text = "+";
+            this.btnAddPerson.UseVisualStyleBackColor = false;
             // 
             // cmbTypeOfMovement
             // 
@@ -212,9 +213,9 @@ namespace WalletManager.Boundarys
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbTypeOfMovement);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnAddPerson);
+            this.Controls.Add(this.btnAddWallet);
+            this.Controls.Add(this.btnAddClasification);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.comboBox3);
@@ -235,9 +236,9 @@ namespace WalletManager.Boundarys
             this.Controls.SetChildIndex(this.comboBox3, 0);
             this.Controls.SetChildIndex(this.btnConfirm, 0);
             this.Controls.SetChildIndex(this.button2, 0);
-            this.Controls.SetChildIndex(this.button3, 0);
-            this.Controls.SetChildIndex(this.button5, 0);
-            this.Controls.SetChildIndex(this.button6, 0);
+            this.Controls.SetChildIndex(this.btnAddClasification, 0);
+            this.Controls.SetChildIndex(this.btnAddWallet, 0);
+            this.Controls.SetChildIndex(this.btnAddPerson, 0);
             this.Controls.SetChildIndex(this.cmbTypeOfMovement, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.btnExit, 0);
@@ -256,9 +257,9 @@ namespace WalletManager.Boundarys
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnAddClasification;
+        private System.Windows.Forms.Button btnAddWallet;
+        private System.Windows.Forms.Button btnAddPerson;
         private System.Windows.Forms.ComboBox cmbTypeOfMovement;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

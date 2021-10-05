@@ -17,5 +17,11 @@ namespace WalletManager.Utilities
             cmb.DisplayMember = displayMember;
             cmb.ValueMember = valueMember;
         }
+        public static bool IsConfirmedOperation()
+        {
+            if (MessageBox.Show("Do you want to confirm the operation?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                return true;
+            return false;
+        }
     }
 }
