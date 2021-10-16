@@ -19,3 +19,4 @@ A:\WalletManager\WalletManager\WalletManager\WalletManager\WalletManager\obj\Deb
 A:\WalletManager\WalletManager\WalletManager\WalletManager\WalletManager\obj\Debug\WalletManager.Interfaces.FrmBase.resources
 A:\WalletManager\WalletManager\WalletManager\WalletManager\WalletManager\obj\Debug\WalletManager.Interfaces.FrmMovement.resources
 A:\WalletManager\WalletManager\WalletManager\WalletManager\WalletManager\obj\Debug\WalletManager.Interfaces.FrmNewClasification.resources
+A:\WalletManager\WalletManager\WalletManager\WalletManager\WalletManager\obj\Debug\WalletManager.Interfaces.FrmEditMovement.resources

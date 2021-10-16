@@ -225,7 +225,6 @@ namespace WalletManager.Boundarys
             this.Controls.Add(this.cmbWallets);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmNewMovement";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Movement";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewMovement_FormClosing);
             this.Load += new System.EventHandler(this.NewMovement_Load);

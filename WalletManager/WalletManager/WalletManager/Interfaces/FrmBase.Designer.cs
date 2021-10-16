@@ -53,6 +53,7 @@ namespace WalletManager.Interfaces
             this.Controls.Add(this.btnExit);
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Name = "FrmBase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBase";
             this.ResumeLayout(false);
 

@@ -106,6 +106,7 @@ namespace WalletManager.Interfaces
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
             this.Name = "FrmNewClasification";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Clasification";
             this.Controls.SetChildIndex(this.btnExit, 0);
             this.Controls.SetChildIndex(this.txtName, 0);

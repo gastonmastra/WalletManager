@@ -56,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\EnumTypeOfMovement.cs" />
+    <Compile Include="Interfaces\FrmEditMovement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\FrmEditMovement.Designer.cs">
+      <DependentUpon>FrmEditMovement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\FrmNewClasification.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     <EmbeddedResource Include="Interfaces\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\FrmEditMovement.resx">
+      <DependentUpon>FrmEditMovement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +188,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Interfaces\Login.Designer" />
     <EntityDeploy Include="Model\EF.edmx">
@@ -217,13 +227,16 @@
     <Content Include="Resources\attachment.ico" />
     <Content Include="Resources\download.ico" />
     <Content Include="Resources\edit-1.ico" />
+    <None Include="Resources\edit-1.png" />
     <Content Include="Resources\edit.ico" />
     <Content Include="Resources\garbage-2.ico" />
     <Content Include="Resources\home-1.ico" />
     <Content Include="Resources\home-1.png" />
+    <None Include="Resources\layers.png" />
     <Content Include="Resources\notebook-1.ico" />
     <Content Include="Resources\save.ico" />
     <Content Include="Resources\search-1.ico" />
+    <None Include="Resources\search-1.png" />
     <Content Include="Resources\search.ico" />
     <Content Include="Resources\upload.ico" />
     <Content Include="Resources\user-3.ico" />
