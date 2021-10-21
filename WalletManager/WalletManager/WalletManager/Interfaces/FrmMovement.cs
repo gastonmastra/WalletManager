@@ -46,12 +46,12 @@ namespace WalletManager.Interfaces
         private void ChargeDgvMovements(List<Movements> filteredMovements)
         {
             dgvMovements.Rows.Clear();
-            var orderedMovements = _movements.OrderBy(X => X.date).ToList(); //ordeno la lista para que salga ordenada por fecha en dgv
             var wallets = _servicioWallet.ListWallets();
             foreach (var wallet in wallets)
             {
+                var orderedMovements = wallet.Movements.OrderBy(X => X.date).ToList(); //ordeno la lista para que salga ordenada por fecha en dgv
                 decimal acum = 0;
-                foreach (var movement in wallet.Movements)
+                foreach (var movement in orderedMovements)
                 {
                     if (movement.TypeOfMovements.id_typeMovement == (int)EnumTypeOfMovement.Ingresos)
                         acum += movement.mount;

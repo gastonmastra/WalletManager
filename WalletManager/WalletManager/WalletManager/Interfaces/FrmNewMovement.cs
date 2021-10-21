@@ -122,7 +122,6 @@ namespace WalletManager.Boundarys
         {
             new FrmNewClasification(_unidadDeTrabajo, _frmPrincipal).ShowDialog();
             ChargeData();
-
         }
     }
 }

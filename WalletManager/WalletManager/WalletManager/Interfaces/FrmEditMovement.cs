@@ -71,7 +71,7 @@ namespace WalletManager.Interfaces
                     return;
                 if (!IsValidMovement())
                     return;
-                UpdateMovement();//lanza un error al cambiar la clave foranea de las clasificaciones.
+                UpdateMovement();
             }
             catch (ApplicationException ex)
             {
@@ -81,7 +81,7 @@ namespace WalletManager.Interfaces
             catch (Exception ex)
             {
                 string msg = ex.Message;
-                MessageBox.Show("Unespected error, try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unexpected error, try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -94,16 +94,17 @@ namespace WalletManager.Interfaces
 
         private bool IsValidMovement()
         {
-            Movements movement = new Movements();
-            movement.Clasifications = (Clasifications)cmbClasification.SelectedItem;
-            movement.Wallets = (Wallets)cmbWallets.SelectedItem;
-            movement.mount = Convert.ToDecimal(txtMount.Text);
-            movement.descrip = txtDescription.Text;
-            movement.TypeOfMovements = (TypeOfMovements)cmbTypeOfMovement.SelectedItem;
-            movement.date = DateTime.Now;
-            _servicioMovimiento.ValidarMovimiento(movement);
-            _movementToEdit = movement;
+            _movementToEdit.Clasifications = (Clasifications)cmbClasification.SelectedItem;
+            _movementToEdit.Wallets = (Wallets)cmbWallets.SelectedItem;
+            _movementToEdit.mount = Convert.ToDecimal(txtMount.Text);
+            _movementToEdit.descrip = txtDescription.Text;
+            _movementToEdit.TypeOfMovements = (TypeOfMovements)cmbTypeOfMovement.SelectedItem;
+            _movementToEdit.date = (DateTime)dateMovement.Value;
+            _servicioMovimiento.ValidarMovimiento(_movementToEdit);
             return true;
         }
     }
 }
+
+
+

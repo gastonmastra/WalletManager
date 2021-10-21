@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -36,7 +37,7 @@ namespace WalletManager.Repository
         }
         public void Update(TEntidad entidad)
         {
-            db.Entry(entidad).State = System.Data.Entity.EntityState.Modified;
+            db.Entry(entidad).State = EntityState.Modified;
             db.SaveChanges();
         }
         public IEnumerable<TEntidad> GetAll()
